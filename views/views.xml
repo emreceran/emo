@@ -24,7 +24,7 @@
                                 <field name="kimlik_no"/>
                                 <field name="mobile" widget="phone"/>
                                 <field name="bolge_adi"/>
-                                <field name="city"/>
+                                <field name="ozel_il_id"/>
                             </group>
                         </group>
 

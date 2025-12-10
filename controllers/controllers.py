@@ -98,7 +98,7 @@ class SahaApi(http.Controller):
                 return {'status': 'error', 'message': 'Musteri bulunamadi'}
 
             # 2. Renk Güvenliği (Beyaz dahil)
-            gecerli_renkler = ['kirmizi', 'mavi', 'yesil', 'sari', 'beyaz']
+            gecerli_renkler = ['kirmizi', 'mavi', 'yesil', 'beyaz']
             if renk not in gecerli_renkler:
                 return {'status': 'error', 'message': 'Gecersiz renk kodu.'}
 

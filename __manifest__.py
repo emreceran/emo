@@ -1,5 +1,5 @@
 {
-    'name': "Saha Operasyon (Temiz)",
+    'name': "Saha Operasyon",
     'summary': "Sadeleştirilmiş Müşteri Kartı ve Saha Takibi",
     'description': "Gereksiz alanlar gizlendi, saha analizleri ana sayfaya alındı.",
     'author': "Siz",
