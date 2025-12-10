@@ -1,28 +1,20 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, api
+from odoo import models, fields
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    # Excel'den gelecek sabit alanlar
+    sorumlu_id = fields.Many2one('res.users', string='Sorumlu Personel', index=True)
+    etiketleyen_id = fields.Many2one('res.users', string='Etiketleyen Personel', readonly=True)
+
+    taraf = fields.Selection([
+        ('kirmizi', 'Kırmızı'),
+        ('mavi', 'Mavi'),
+        ('yesil', 'Yeşil'),
+        ('beyaz', 'Beyaz (Tarafsız)'), # Yeni seçeneğimiz
+    ], string='Taraf Seçimi')
+
     sicil_no = fields.Char(string='Sicil No', index=True)
-    kimlik_no = fields.Char(string='Kimlik No')
-    kurum_adi = fields.Char(string='Kurum')
+    kimlik_no = fields.Char(string='TC Kimlik No')
+    kurum_adi = fields.Char(string='Kurum Adı')
     bolge_adi = fields.Char(string='Bölge (Detay)')
-    
-    # Analiz tablosu bağlantısı
-    analiz_ids = fields.One2many('fr_26.analiz', 'partner_id', string='Saha Analizleri')
-
-class SahaAnaliz(models.Model):
-    _name = 'fr_26.analiz'
-    _description = 'Saha Analiz Sonuçları'
-    _order = 'create_date desc'
-
-    partner_id = fields.Many2one('res.partner', string='Müşteri', required=True)
-    user_id = fields.Many2one('res.users', string='Personel', default=lambda self: self.env.user)
-    
-    # Mobil uygulamadan gelecek sınırsız metinler
-    oy = fields.Char(string='Oy', required=True)
-    taraf = fields.Char(string='Taraf', required=True)
-    
-    create_date = fields.Datetime(string='Tarih', default=fields.Datetime.now)
