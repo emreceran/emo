@@ -17,4 +17,4 @@ class ResPartner(models.Model):
     sicil_no = fields.Char(string='Sicil No', index=True)
     kimlik_no = fields.Char(string='TC Kimlik No')
     kurum_adi = fields.Char(string='Kurum Adı')
-    bolge_adi = fields.Char(string='Bölge (Detay)')
+    bolge_adi = fields.Char(string='Bölge (Detay)') 
